@@ -10,16 +10,18 @@ public class Utente {
     //constr
 
     public Utente(String nome, String cognome, String email, String password, int age) throws Exception {
-        this.nome = nome;
-        this.cognome = cognome;
+
         if ( !(email.contains("@")) || !(email.contains(".") ))
             throw new Exception("La mail deve contenere un '@' e un '.'");
-        this.email = email;
         if ( password.length()<8 || password.length()>12)
             throw new Exception("La password deve contenere tra gli 8 e i 12 caratteri");
-        this.password = password;
         if (age<18)
             throw new Exception("Devi avere più di 18 anni");
+
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.password = password;
         this.age = age;
     }
 
