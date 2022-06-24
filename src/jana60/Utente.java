@@ -47,7 +47,7 @@ public class Utente {
     }
 
     public void setEmail(String email) throws Exception {
-        if ( !(email.contains("@")) || !(email.contains(".") ))
+        if ( password.length()<8 || password.length()>12)
             throw new Exception("La mail deve contenere un '@' e un '.'");
         this.email = email;
     }
@@ -56,7 +56,9 @@ public class Utente {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) throws Exception {
+        if ( !(email.contains("@")) || !(email.contains(".") ))
+            throw new Exception("La password deve contenere tra gli 8 e i 12 caratteri");
         this.password = password;
     }
 
@@ -64,7 +66,9 @@ public class Utente {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws Exception {
+        if (age<18)
+            throw new Exception("Devi avere più di 18 anni");
         this.age = age;
     }
 
